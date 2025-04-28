@@ -2,6 +2,10 @@
 
 This is a movie app built with React, Vite, Tailwind CSS, and The Movie Database (TMDB) API (V3).
 
+## Live Demo
+
+👉 https://tmdb-clone-delta.vercel.app
+
 ## Features
 
 - Search for movies and TV shows.
