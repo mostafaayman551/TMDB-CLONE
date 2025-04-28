@@ -27,7 +27,6 @@ const Home = () => {
     }, 6e4);
     return () => clearInterval(interval);
   }, [backdrop]);
-  // Handle Search
   const handleSearch = (e) => {
     e.preventDefault();
     if (query.trim()) {
@@ -37,37 +36,33 @@ const Home = () => {
   return (
     <section className="w-full bg-blue-950">
         <motion.div
-          className="pt-40 mx-auto text-center w-full h-screen relative flex flex-col justify-center items-center"
-          style={{
-            backgroundImage: `url(${
-              randomBackdrop ? IMAGE_BASE_URL + randomBackdrop : IMAGE_BASE_URL + backdrop[0]
-            })`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "top right",
-          }}
-          key={randomBackdrop}
+          className="pt-32 sm:pt-40 mx-auto text-center w-full min-h-[80vh] sm:min-h-screen relative flex flex-col justify-center items-center px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
+          <div className="z-10 absolute top-0 left-0 w-full h-full">
+            <img src={randomBackdrop ? IMAGE_BASE_URL + randomBackdrop : IMAGE_BASE_URL + backdrop[0]} alt="hero backdrop image"
+            className="w-full h-full object-cover object-center"
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-blue-950 z-10"></div>
 
           <motion.div
-            className="p-4 rounded-2xl relative z-30 inline-block mb-10"
+            className="px-6 sm:px-10 py-8 rounded-2xl relative z-30 inline-block mb-10 bg-opacity-20"
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-8xl text-white font-bold uppercase">
+            <h1 className="text-5xl sm:text-7xl md:text-8xl text-white font-bold uppercase leading-tight">
               Welcome.
             </h1>
-            <p className="text-xl text-white font-medium">
+            <p className="text-lg sm:text-xl text-white font-medium mt-4">
               Millions of movies, TV shows and people to discover. Explore now.
             </p>
           </motion.div>
           <motion.form
-            className="w-full max-w-lg mx-auto sm:max-w-full rounded-full text-xl relative z-20 flex justify-center items-center"
+            className="w-full max-w-2xl mx-auto flex items-center rounded-full z-20 bg-white shadow-lg" 
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -76,16 +71,16 @@ const Home = () => {
             <input
               type="text"
               placeholder="Search movie App"
-              className="w-full sm:w-5/6 lg:w-4/6 rounded-l-full px-5 py-4 focus:outline-none"
+              className="flex-1 px-5 py-4 text-lg rounded-l-full focus:outline-none"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
             <motion.input
               type="submit"
               value="Search"
-              className="w-full sm:w-1/6 lg:w-1/6 rounded-r-full px-5 py-4 bg-purple-500 cursor-pointer text-white font-medium"
+              className=" h-full bg-purple-500 hover:bg-purple-600 text-white p-5 rounded-r-full font-medium
+              focu:ring-2 focus:ring-purple-400 cursor-pointer"
               whileHover={{scale: 1.05}}
-              whileTap={{scale: 0.95}}
             />
           </motion.form>
         </motion.div>

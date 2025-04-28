@@ -27,15 +27,15 @@ const SimilarMedia = ({ mediaType, id }) => {
   return (
     <>
       {data?.length > 0 && (
-        <>
+        <div className="px-6 md:px-20 mx-auto my-5">
           <h2 className="text-2xl text-white font-bold mb-2">Similar</h2>
           <div className="overflow-x-auto py-5">
-            <div className="flex gap-4">
+            <div className="flex gap-4 pb-4 snap-x snap-mandatory">
               {data?.slice(0, 20).map((item) => (
                 <Link
                   to={`/${mediaType}/${item?.id}`}
                   key={item?.id}
-                  className="rounded-lg shadow-md bg-white/80 text-center w-[240px] flex-shrink-0 overflow-hidden relative hover:scale-105 hover:translate-x-[30px] hover:z-50 hover:bg-transparent transition-all duration-300 group"
+                  className="flex-shrink-0 w-[180px] md:w-[200px] lg:w-[220px] rounded-lg shadow-md bg-white/80 text-center overflow-hidden snap-start relative hover:scale-105 hover:translate-x-[30px] hover:z-50 hover:bg-transparent transition-all duration-300 group"
                 >
                   <LazyLoadImage
                     src={
@@ -44,7 +44,7 @@ const SimilarMedia = ({ mediaType, id }) => {
                         : NoPoster
                     }
                     alt={item?.title || item?.name}
-                    className="w-full h-[400px] group-hover:h-full object-cover object-center rounded-t-lg mb-2"
+                    className="w-full aspect-[2/3] object-cover object-center rounded-t-lg"
                     effect="blur"
                   />
                   <div className="flex justify-between items-center mb-1 px-1 text-black group-hover:hidden">
@@ -66,7 +66,7 @@ const SimilarMedia = ({ mediaType, id }) => {
               ))}
             </div>
           </div>
-        </>
+        </div>
       )}
     </>
   );

@@ -7,6 +7,7 @@ import NoPoster from "../../assets/no-poster.png";
 import { BeatLoader } from "react-spinners";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { motion } from "framer-motion";
 
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
@@ -70,34 +71,34 @@ const SearchPage = () => {
             </div>
           }
         >
-          <div className="grid grid-cols-5 gap-4 overflow-hidden">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {data?.map((item) => (
-              <Link
-                to={`/${item?.media_type}/${item?.id}`}
-                key={item?.id}
-                className="overflow-hidden"
-              >
-                <LazyLoadImage
-                  src={
-                    item?.poster_path
-                      ? IMAGE_BASE_URL + item?.poster_path
-                      : NoPoster
-                  }
-                  alt={item?.title || item?.name}
-                  className="rounded-md w-full h-[400px] object-cover"
-                  effect="blur"
-                />
-                <div className="mt-2">
-                  <p className="text-xl text-white">
-                    {item?.title || item?.name}
-                  </p>
-                  <small className="text-gray-500 font-medium text-sm">
-                    {dayjs(item?.release_date || item?.first_air_date).format(
-                      "MMM D, YYYY"
-                    )}
-                  </small>
-                </div>
-              </Link>
+              <motion.div key={item?.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="overflow-hidden">
+                <Link
+                  to={`/${item?.media_type}/${item?.id}`}
+                >
+                  <LazyLoadImage
+                    src={
+                      item?.poster_path
+                        ? IMAGE_BASE_URL + item?.poster_path
+                        : NoPoster
+                    }
+                    alt={item?.title || item?.name}
+                    className="rounded-md w-full aspect-[2/3] object-cover"
+                    effect="blur"
+                  />
+                  <div className="mt-2">
+                    <p className="text-base sm:text-lg text-white font-semibold line-clamp-2">
+                      {item?.title || item?.name}
+                    </p>
+                    <small className="text-gray-500 font-medium text-sm">
+                      {dayjs(item?.release_date || item?.first_air_date).format(
+                        "MMM D, YYYY"
+                      )}
+                    </small>
+                  </div>
+                </Link>
+              </motion.div>
             ))}
           </div>
         </InfiniteScroll>

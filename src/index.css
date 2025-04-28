@@ -23,16 +23,30 @@ html {
   }
 }
 .specialAnimation {
-  animation: grayScale 6s infinite;
+  animation: grayScale 7s infinite;
 }
 @keyframes grayScale {
   0% {
     filter: grayscale(0);
   }
   50% {
-    filter: grayscale(1);
+    filter: grayscale(0.6);
   }
   100% {
     filter: grayscale(0);
   }
+}
+
+.swiper-pagination {
+  position: relative !important;
+  display: block !important;
+  padding-block: 20px;
+}
+.swiper-pagination-bullet {
+  background-color: #a855f7 !important;
+  opacity: 0.7;
+}
+.swiper-pagination-bullet-active {
+  background-color: #9333ea !important;
+  opacity: 1;
 }

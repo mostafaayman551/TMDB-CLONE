@@ -35,14 +35,16 @@ const CastList = ({ mediaType, id, credits }) => {
         className="px-6 md:px-20 mx-auto text-center mt-4"
       />
     );
-  if (!credits?.cast.length) return null;
+  if (!credits?.cast.length) return (
+    <div className="text-center text-gray-500">No Cast Info Available</div>
+  )
 
   return (
     <div className="px-6 md:px-20 mx-auto my-5">
       <motion.h2 initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.8}} className="text-2xl text-white font-bold mb-5">Top Cast</motion.h2>
       <div className="flex gap-4 overflow-x-auto pb-2 mb-5">
         {credits?.cast.slice(0, 12).map((a) => (
-          <motion.div key={a.id} className="flex-shrink-0 rounded-lg shadow-md bg-white/90 text-center w-[140px]" initial={{opacity: 0, y: 30}} animate={{opacity: 1, y: 0}} transition={{duration: 0.5 , ease: "easeOut"}}>
+          <motion.div key={a.id} className="flex-shrink-0 w-[120px] sm:w-[140px] md:w-[160px] rounded-lg shadow-md bg-white/90 text-center" initial={{opacity: 0, y: 30}} animate={{opacity: 1, y: 0}} transition={{duration: 0.5 , ease: "easeOut"}}>
             <Link
               to={`/person/${a.id}/${a.name
                 .toLowerCase()
@@ -53,12 +55,12 @@ const CastList = ({ mediaType, id, credits }) => {
                   a.profile_path ? IMAGE_BASE_URL + a.profile_path : NoPoster
                 }
                 alt={a.name}
-                className="w-full object-cover rounded-t-lg mb-2"
+                className="w-full aspect-[2/3] object-cover rounded-t-lg"
                 effect="blur"
               />
-              <div className="mt-2 mb-0">
-                <h3 className="text-black font-semibold">{a.name}</h3>
-                <p className="text-gray-500">{a.character}</p>
+              <div className="p-2">
+                <h3 className="text-black text-sm font-semibold truncate">{a.name}</h3>
+                <p className="text-gray-500 text-xs break-words">{a.character}</p>
               </div>
             </Link>
           </motion.div>
@@ -75,23 +77,23 @@ const CastList = ({ mediaType, id, credits }) => {
       <div className="w-full border-b border-gray-500 py-5 mb-5">
         <Link
           to={`/${mediaType}/${id}/credits`}
-          className=" text-white hover:text-purple-500"
+          className=" text-white hover:text-purple-500 text-lg"
         >
           Full Cast & Crew
         </Link>
       </div>
       <div className="w-full border-b border-gray-500 py-5">
-        <h2 className="text-white mb-3">Reviews</h2>
-        <div className="grid grid-cols-1 gap-2">
+        <h2 className="text-white mb-3 text-lg">Reviews</h2>
+        <div className="grid gap-4">
           {reviews?.map((review) => (
             <motion.div
               key={review.id}
-              className="rounded-lg shadow-md p-4 border border-gray-500 bg-black/50 h-fit"
+              className="rounded-lg shadow-md p-4 border border-gray-500 bg-black/50"
               initial={{opacity: 0, y: 20}}
               animate={{opacity: 1, y: 0}}
               transition={{duration: 0.5 , delay: 0.2}}
             >
-              <p className="flex items-center justify-between border-b-2 border-gray-500 pb-2">
+              <p className="flex items-center justify-between border-b-2 border-gray-500 pb-2 mb-2">
                 <strong>
                   By{" "}
                   <span className="font-semibold text-purple-500">
@@ -100,7 +102,7 @@ const CastList = ({ mediaType, id, credits }) => {
                 </strong>
                 <span className="flex items-center bg-blue-500 p-2 rounded">
                   {review.author_details.rating}
-                  <FaStar size={16} className="text-yellow-500" />
+                  <FaStar size={16} className="text-yellow-500 ml-1" />
                 </span>
               </p>
               <p className="mt-2 text-sm font-thin font-mono leading-relaxed">

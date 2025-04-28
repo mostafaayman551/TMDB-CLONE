@@ -37,23 +37,23 @@ const VideoSection = ({ mediaType, id, videoModal, setVideoModal }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center"
+          className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={() => setVideoModal(false)}
         >
           <div
-            className="relative w-[90%] md:w-[70%] lg:w-[60%] xl:w-[50%] bg-black rounded-lg overflow-hidden"
+            className="relative w-full max-w-2xl md:max-w-4xl bg-black rounded-lg overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setVideoModal(false)}
-              className="absolute top-4 right-4 text-white bg-purple-500 p-1 rounded-full group hover:bg-white"
+              className="absolute top-4 right-4 text-white bg-purple-500 p-1 rounded-full group hover:bg-white transition"
             >
               <FaX
                 size={20}
                 className="text-white group-hover:text-purple-500"
               />
             </button>
-            <div className="aspect-video">
+            <div className="aspect-video bg-black">
               {loading ? (
                 <div className="flex justify-center items-center h-full">
                   <BeatLoader
@@ -72,8 +72,8 @@ const VideoSection = ({ mediaType, id, videoModal, setVideoModal }) => {
                   controls
                 />
               ) : (
-                <p className="text-white flex justify-center items-center h-full">
-                  No Trailer Available Now
+                <p className="text-white flex justify-center items-center h-full text-lg">
+                  No Trailer Available Right Now
                 </p>
               )}
             </div>

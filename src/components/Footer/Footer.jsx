@@ -12,31 +12,31 @@ const Footer = () => {
   return (
     <footer className="w-full bg-blue-950 pt-14">
       <div className="bg-black/50 flex flex-col items-center py-10 px-4 sm:px-10 text-center">
-        <ul className="flex items-center gap-5 mb-5">
+        <ul className="flex items-center gap-5 mb-5 text-sm">
           <li>
-            <a href="#" className="text-white hover:text-purple-500">
+            <Link to={void(0)} className="text-white hover:text-purple-500">
               Terms Of Use
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="text-white hover:text-purple-500">
+            <Link to={void(0)} className="text-white hover:text-purple-500">
               Privacy Policy
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="text-white hover:text-purple-500">
+            <Link to={void(0)} className="text-white hover:text-purple-500">
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="text-white hover:text-purple-500">
+            <Link to={void(0)} className="text-white hover:text-purple-500">
               Blog
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="text-white hover:text-purple-500">
+            <Link to={void(0)} className="text-white hover:text-purple-500">
               FAQ
-            </a>
+            </Link>
           </li>
         </ul>
         <p className="text-gray-500 text-sm font-light mb-5">

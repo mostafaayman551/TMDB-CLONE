@@ -104,9 +104,9 @@ const ExplorePage = () => {
   };
 
   return (
-    <section className="min-h-screen w-full bg-blue-950 pt-40 mx-auto sm:px-10">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl text-white">
+    <section className="min-h-screen w-full bg-blue-950 pt-40 mx-auto px-4 sm:px-10">
+      <div className="flex flex-col sm:flex-row justify-between mb-6">
+        <h2 className="text-2xl text-white sm: mb-5">
           Explore {mediaType === "movie" ? "Movies" : "TV Shows"}
         </h2>
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8 mb-8">
@@ -149,7 +149,7 @@ const ExplorePage = () => {
             </div>
           }
         >
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {data?.map((item) => (
               <motion.div key={item?.id} initial={{opacity: 0, y: 50}} animate={{opacity: 1, y: 0}} transition={{duration: 0.5}} 
               className="bg-black/20 rounded-md  overflow-hidden"
@@ -164,7 +164,7 @@ const ExplorePage = () => {
                         : NoPoster
                     }
                     alt={item?.title || item?.name}
-                    className="rounded-ss-md rounded-se-md w-full object-cover overflow-hidden"
+                    className="rounded-ss-md rounded-se-md w-full aspect-[2/3] object-cover overflow-hidden"
                     effect="blur"
                   />
                   <div className="flex justify-between items-start p-5">

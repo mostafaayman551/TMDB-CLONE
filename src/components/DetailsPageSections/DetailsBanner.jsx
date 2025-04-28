@@ -64,11 +64,11 @@ const DetailsBanner = ({ mediaType, id, credits, setVideoModal }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-950 via-blue-950/60 to-transparent"></div>
       </div>
-      <div className="relative z-10 flex flex-col md:flex-row items-start gap-10 px-6 md:px-20 pt-28 mx-auto">
+      <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-5 px-4 sm:px-6 md:px-20 pt-24 sm:pt-28 pb-10 mx-auto">
         <LazyLoadImage
           src={poster_path ? IMAGE_BASE_URL + poster_path : NoPoster}
           alt={name || title}
-          className="max-w-[300px] rounded-2xl shadow-xl object-cover"
+          className="max-w-[300px] rounded-2xl shadow-xl object-cover flex-shrink-0"
           effect="blur"
         />
         <div className="flex flex-col items-start bg-black/20 rounded-lg p-4">

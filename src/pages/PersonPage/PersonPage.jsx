@@ -87,7 +87,7 @@ const PersonPage = () => {
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <div className="px-6 md:px-20 mx-auto pt-20">
-        <div className="grid grid-cols-3 gap-3 text-white">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-white">
           <LazyLoadImage
             src={
               personDetails?.profile_path
@@ -95,10 +95,10 @@ const PersonPage = () => {
                 : NoPoster
             }
             alt={personDetails?.name}
-            className="w-full aspect-auto object-cover object-center rounded-2xl shadow-xl col-span-1"
+            className="w-[200px] sm:w-[300px] lg:w-full aspect-auto object-cover object-center sm:m-auto rounded-2xl shadow-xl md:col-span-1"
             effect="blur"
           />
-          <div className="bg-black/20 rounded-lg p-4 col-span-2">
+          <div className="bg-black/20 rounded-lg p-4 md:col-span-2">
             <h1 className="text-3xl font-bold mb-5">{personDetails?.name}</h1>
             <div className="mb-3">
               <h3 className="text-2xl mb-2">Biography</h3>
@@ -111,7 +111,7 @@ const PersonPage = () => {
               )}
             </div>
           </div>
-          <div className="col-span-1 bg-black/20 rounded-lg p-4">
+          <div className="md:col-span-1 bg-black/20 rounded-lg p-4">
             <div className="flex items-center gap-4 my-3">
               <Link
                 to={`https://www.imdb.com/name/${socialIds?.imdb_id}`}
@@ -219,9 +219,9 @@ const PersonPage = () => {
               </p>
             </div>
           </div>
-          <div className="overflow-hidden p-4 bg-black/20 rounded-lg col-span-2">
+          <div className="overflow-hidden p-4 bg-black/20 rounded-lg md:col-span-2">
             <h3 className="text-2xl mb-2">Known For</h3>
-            <div className="flex overflow-x-auto p-4">
+            <div className="flex overflow-x-auto space-x-4 p-4">
               {knownFor?.map((item) => (
                 <motion.div key={item.id} className="flex-shrink-0 rounded-lg shadow-md text-center mx-2 overflow-hidden relative group"
                   whileHover={{ scale: 1.05 }}

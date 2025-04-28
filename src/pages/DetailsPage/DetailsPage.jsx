@@ -28,27 +28,21 @@ const DetailsPage = () => {
 
   return (
     <section className="w-full bg-blue-950 text-white">
-      <div>
-        <DetailsBanner
-          mediaType={mediaType}
-          id={id}
-          credits={credits}
-          setVideoModal={setVideoModal}
-        />
-        <CastList mediaType={mediaType} id={id} credits={credits} />
-        <VideoSection
-          mediaType={mediaType}
-          id={id}
-          videoModal={videoModal}
-          setVideoModal={setVideoModal}
-        />
-      </div>
-      <div className="pt-10 px-6 md:px-20 mx-auto">
-        <SimilarMedia mediaType={mediaType} id={id} />
-      </div>
-      <div className="pt-10 px-6 md:px-20 mx-auto">
-        <RecommendationMedia mediaType={mediaType} id={id} />
-      </div>
+      <DetailsBanner
+        mediaType={mediaType}
+        id={id}
+        credits={credits}
+        setVideoModal={setVideoModal}
+      />
+      <CastList mediaType={mediaType} id={id} credits={credits} />
+      <VideoSection
+        mediaType={mediaType}
+        id={id}
+        videoModal={videoModal}
+        setVideoModal={setVideoModal}
+      />
+      <SimilarMedia mediaType={mediaType} id={id} />
+      <RecommendationMedia mediaType={mediaType} id={id} />
     </section>
   );
 };
